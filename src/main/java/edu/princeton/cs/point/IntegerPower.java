@@ -1,4 +1,4 @@
-package edu.princeton.cs.fun;
+package edu.princeton.cs.point;
 
 /**
  * @description: 剑指 Offer 16. 数值的整数次方

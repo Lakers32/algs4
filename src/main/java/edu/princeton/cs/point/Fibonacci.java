@@ -1,4 +1,4 @@
-package edu.princeton.cs.fun;
+package edu.princeton.cs.point;
 
 /**
  * @description: 剑指 Offer 10- I. 斐波那契数列，类似青蛙跳台阶问题(初始化条件可能不一样)

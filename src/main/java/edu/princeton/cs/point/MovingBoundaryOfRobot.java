@@ -1,4 +1,4 @@
-package edu.princeton.cs.fun;
+package edu.princeton.cs.point;
 
 import java.util.LinkedList;
 import java.util.Queue;
