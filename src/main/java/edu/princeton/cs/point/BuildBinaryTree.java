@@ -14,7 +14,7 @@ import java.util.Stack;
  * @author: cheng kai
  * @create: 2021-02-04 18:54
  **/
-public class BuildTree {
+public class BuildBinaryTree {
 
     public static class TreeNode {
         int val;
