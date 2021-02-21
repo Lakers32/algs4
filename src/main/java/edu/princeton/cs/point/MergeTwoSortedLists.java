@@ -30,6 +30,13 @@ public class MergeTwoSortedLists {
      * @return
      */
     public static ListNode solution(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+
         ListNode l = null;
         ListNode lHead = null;
         // 将l1、l2逐个添加到l中
