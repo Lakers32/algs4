@@ -1,5 +1,7 @@
 package edu.princeton.cs.point;
 
+import java.util.Arrays;
+
 /**
  * @description: 剑指 Offer 17. 打印从1到最大的n位数
  * <p>
@@ -35,8 +37,8 @@ public class PrintOneToNDigit {
     }
 
     public static void main(String[] args) {
-        System.out.println("0位数的所有数字为" + solution(0));
-        System.out.println("1位数的所有数字为" + solution(1));
-        System.out.println("2位数的所有数字为" + solution(2));
+        System.out.println("0位数的所有数字为" + Arrays.toString(solution(0)));
+        System.out.println("1位数的所有数字为" + Arrays.toString(solution(1)));
+        System.out.println("2位数的所有数字为" + Arrays.toString(solution(2)));
     }
 }
