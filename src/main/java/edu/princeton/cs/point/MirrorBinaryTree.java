@@ -1,7 +1,13 @@
 package edu.princeton.cs.point;
 
+import java.util.Stack;
+
 /**
  * @description: 剑指 Offer 27. 二叉树的镜像
+ * <p>
+ * 请完成一个函数，输入一个二叉树，该函数输出它的镜像。
+ * <p>
+ * https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
  * @author: cheng kai
  * @create: 2021-02-21 16:38
  **/
@@ -17,7 +23,13 @@ public class MirrorBinaryTree {
         }
     }
 
-    public static TreeNode solution (TreeNode root) {
+    /**
+     * 递归
+     *
+     * @param root
+     * @return
+     */
+    public static TreeNode solution(TreeNode root) {
         if (root == null) {
             return null;
         }
@@ -25,7 +37,38 @@ public class MirrorBinaryTree {
         TreeNode leftTemp = root.left;
         root.left = solution(root.right);
         root.right = solution(leftTemp);
-        
+
+        return root;
+    }
+
+    /**
+     * 辅助栈（或队列）
+     *
+     * @param root
+     * @return
+     */
+    public static TreeNode solution2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            TreeNode left = node.left;
+            TreeNode right = node.right;
+            if (left != null) {
+                stack.push(left);
+            }
+            if (right != null) {
+                stack.push(right);
+            }
+
+            node.left = right;
+            node.right = left;
+        }
+
         return root;
     }
 
