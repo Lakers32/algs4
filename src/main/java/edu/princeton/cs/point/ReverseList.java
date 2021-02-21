@@ -47,7 +47,9 @@ public class ReverseList {
      * @return
      */
     public static ListNode solution2(ListNode head) {
+        // 前面或当前节点
         ListNode current = null;
+        // 后面和暂存节点
         ListNode next = null;
         while (head != null) {
             next = head.next;
