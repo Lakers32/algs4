@@ -22,15 +22,14 @@ public class MergeTwoSortedLists {
         }
     }
 
+    /**
+     * 得到首节点后，逐个添加到新链表
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
     public static ListNode solution(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-
-        if (l2 == null) {
-            return l1;
-        }
-
         ListNode l = null;
         ListNode lHead = null;
         // 将l1、l2逐个添加到l中
@@ -57,18 +56,47 @@ public class MergeTwoSortedLists {
         }
 
         // 将剩余逐个添加到l中
-        while (l1 != null) {
-            lHead.next = new ListNode(l1.val);
-            lHead = lHead.next;
-            l1 = l1.next;
+        if (l1 != null) {
+            lHead.next = l1;
         }
-        while (l2 != null) {
-            lHead.next = new ListNode(l2.val);
-            lHead = lHead.next;
-            l2 = l2.next;
+        if (l2 != null) {
+            lHead.next = l2;
         }
 
         return l;
+    }
+
+    /**
+     * 构建虚拟节点为首节点，返回第二个节点即可
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public static ListNode solution2(ListNode l1, ListNode l2) {
+        ListNode l = new ListNode(Integer.MIN_VALUE);
+        ListNode lHead = l;
+        // 将l1、l2逐个添加到l中
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                lHead.next = new ListNode(l1.val);
+                l1 = l1.next;
+            } else {
+                lHead.next = new ListNode(l2.val);
+                l2 = l2.next;
+            }
+            lHead = lHead.next;
+        }
+
+        // 将剩余逐个添加到l中
+        if (l1 != null) {
+            lHead.next = l1;
+        }
+        if (l2 != null) {
+            lHead.next = l2;
+        }
+
+        return l.next;
     }
 
     public static void main(String[] args) {
@@ -84,6 +112,6 @@ public class MergeTwoSortedLists {
         node21.next = node22;
         node22.next = node23;
 
-        System.out.println("The merged list is " + solution(node11, node21));
+        System.out.println("The merged list is " + solution2(node11, node21));
     }
 }
