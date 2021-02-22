@@ -9,7 +9,6 @@ import java.util.Queue;
  * @description: 剑指 Offer 32 - I. 从上到下打印二叉树（按层打印二叉树）
  * <p>
  * 从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
- * 提示：节点总数 <= 1000
  * <p>
  * https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/
  * @author: cheng kai
