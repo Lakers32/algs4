@@ -21,9 +21,38 @@ public class IsBinaryTreeSymmetric {
         }
     }
 
+    /**
+     * 1、先镜像二叉树 {@link edu.princeton.cs.point.MirrorBinaryTree}
+     * 2、再判断1中得到的二叉树是否与原二叉树一样
+     *
+     * @param root
+     * @return
+     */
     public static boolean solution(TreeNode root) {
 
         return true;
+    }
+
+    /**
+     * 递归法
+     *
+     * @param root
+     * @return
+     */
+    public static boolean solution2(TreeNode root) {
+        return root == null ? true : recur(root.left, root.right);
+    }
+
+    private static boolean recur(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        }
+
+        if (left == null || right == null || left.val != right.val) {
+            return false;
+        }
+
+        return recur(left.left, right.right) && recur(right.left, left.right);
     }
 
     public static void main(String[] args) {
@@ -42,7 +71,6 @@ public class IsBinaryTreeSymmetric {
         node2.left = node5;
         node2.right = node6;
 
-        solution(root);
-        System.out.println("Is binary tree symmetric? " + solution(root));
+        System.out.println("Is binary tree symmetric? " + solution2(root));
     }
 }
