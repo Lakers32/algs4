@@ -25,7 +25,7 @@ public class PrintBinaryTreeByLevel2 {
 
     public static List<List<Integer>> solution(TreeNode root) {
         if (root == null) {
-            return null;
+            return new LinkedList<>();
         }
 
         List<List<Integer>> levelVales = new LinkedList<>();
