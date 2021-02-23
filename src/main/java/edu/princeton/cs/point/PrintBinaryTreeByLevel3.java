@@ -72,7 +72,7 @@ public class PrintBinaryTreeByLevel3 {
      * @param root
      * @return
      */
-    public List<List<Integer>> solution2(TreeNode root) {
+    public static List<List<Integer>> solution2(TreeNode root) {
         if (root == null) {
             return new LinkedList<>();
         }
@@ -128,7 +128,7 @@ public class PrintBinaryTreeByLevel3 {
      * @param root
      * @return
      */
-    public List<List<Integer>> solution3(TreeNode root) {
+    public static List<List<Integer>> solution3(TreeNode root) {
         if (root == null) {
             return new LinkedList<>();
         }
@@ -174,6 +174,6 @@ public class PrintBinaryTreeByLevel3 {
         node2.left = node5;
         node2.right = node6;
 
-        System.out.println("Print binary tree by level: " + (solution(root)));
+        System.out.println("Print binary tree by level: " + (solution2(root)));
     }
 }
