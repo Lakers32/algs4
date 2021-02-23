@@ -47,7 +47,7 @@ public class TransferBinarySearchTreeToDoubleLinkedList {
     }
 
     /**
-     * 中序遍历
+     * 递归法中序遍历
      * @param cur
      */
     void dfs(Node cur) {
@@ -57,13 +57,16 @@ public class TransferBinarySearchTreeToDoubleLinkedList {
         dfs(cur.left);
         // pre不为空，说明是递归中的归操作
         if (pre != null) {
+            // 类似双向链表中的前置节点
             pre.right = cur;
         }
         // pre仍旧是null，说明访问到了头节点
         else {
             head = cur;
         }
+        // 类似双向链表中的后置节点
         cur.left = pre;
+        // 保存cur给pre备用
         pre = cur;
         dfs(cur.right);
     }
