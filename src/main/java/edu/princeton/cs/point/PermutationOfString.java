@@ -49,7 +49,7 @@ public class PermutationOfString {
             swap(i, x);
             // 开启固定第 x + 1 位字符
             dfs(x + 1);
-            // 恢复交换
+            // 恢复交换(回溯)
             swap(i, x);
         }
     }
