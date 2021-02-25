@@ -112,6 +112,7 @@ public class LeastKNumbers {
             }
             swap(nums, i, j);
         }
+        // j位置的数值大于lo位置，故交换
         nums[lo] = nums[j];
         nums[j] = v;
         return j;
