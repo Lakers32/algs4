@@ -32,7 +32,11 @@ public class LeastKNumbers {
     }
 
     /**
-     * 最小堆
+     * 最大堆：当父节点的键值总是大于或等于任何一个子节点的键值。
+     * 保持堆的大小为K，然后遍历数组中的数字，遍历的时候做如下判断：
+     * 1. 若目前堆的大小 小于K，将当前数字放入堆中。
+     * 2. 否则判断当前数字与大根堆堆顶元素的大小关系，如果当前数字比大根堆堆顶还大，这个数就直接跳过；
+     *    反之如果当前数字比大根堆堆顶小，先poll掉堆顶，再将该数字放入堆中。
      *
      * @param arr
      * @param k
@@ -48,6 +52,7 @@ public class LeastKNumbers {
             queue.offer(arr[i]);
         }
         for (int i = k; i < arr.length; ++i) {
+            // 最大堆的首个原始值最大
             if (queue.peek() > arr[i]) {
                 queue.poll();
                 queue.offer(arr[i]);
@@ -134,6 +139,6 @@ public class LeastKNumbers {
     public static void main(String[] args) {
         int[] arr = {4, 5, 1, 6, 2, 7, 3, 8};
         int k = 4;
-        System.out.println("Least K nums are" + Arrays.toString(solution3(arr, k)));
+        System.out.println("Least K nums are" + Arrays.toString(solution2(arr, k)));
     }
 }
