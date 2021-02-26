@@ -107,9 +107,7 @@ public class MaxSubArray {
 
     /**
      * 动态规划2
-     * 总体来说，最大值在 (sum[i-1], nums[i], sum[i-1] + nums[i]) 中决出
-     * ①、若sum[i-1] > 0, 则最大值在 (sum[i-1], sum[i-1] + nums[i] )中决出
-     * ②、若sum[i-1] < 0, 则最大值在 (sum[i-1], nums[i])中决出
+     * sum(j) = max(sum(j-1) + a[j] , a[j])
      *
      * @param nums
      * @return
@@ -136,12 +134,48 @@ public class MaxSubArray {
 
     /**
      * 动态规划3
-     * 覆盖数值原值，极省空间
+     * sum(j) = max(sum(j-1) + a[j] , a[j])
+     * 比动态规划2多 子序列开始和结束位置
      *
      * @param nums
      * @return
      */
     public static int solution33(int[] nums) {
+        int startIndex = 0;
+        int endIndex = 0;
+        int maxSum = nums[0];
+        // 用于记录dp[i-1]的值，对于dp[0]而言，其前面的dp[-1]=0
+        int previousSum = 0;
+        // 用于记录dp[i]的值
+        int candidateSumMax;
+
+        for (int i = 0, j = 0; i < nums.length; i++) {
+            candidateSumMax = nums[i];
+            if (previousSum > 0) {
+                candidateSumMax += previousSum;
+            } else {
+                j = i;
+            }
+            if (candidateSumMax > maxSum) {
+                startIndex = j;
+                endIndex = i;
+                maxSum = candidateSumMax;
+            }
+            previousSum = candidateSumMax;
+        }
+        System.out.println("maxSum = " + maxSum + ", startIndex = " + startIndex + ", endIndex = " + endIndex);
+
+        return maxSum;
+    }
+
+    /**
+     * 动态规划4
+     * 覆盖数值原值，极省空间
+     *
+     * @param nums
+     * @return
+     */
+    public static int solution34(int[] nums) {
         int maxSum = nums[0];
         for (int i = 1; i < nums.length; i++) {
             nums[i] += Math.max(nums[i - 1], 0);
@@ -156,6 +190,6 @@ public class MaxSubArray {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int[] nums2 = {-2, -1, -3, -4};
 
-        System.out.println("The max of sub array is " + solution2(nums));
+        System.out.println("The max of sub array is " + solution33(nums));
     }
 }
