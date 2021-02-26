@@ -154,6 +154,7 @@ public class MaxSubArray {
             if (previousSum > 0) {
                 candidateSumMax += previousSum;
             } else {
+                // 若dp[i−1] ≤ 0，说明dp[i−1]对dp[i]产生负贡献，即dp[i-1] + nums[i]还不如nums[i]本身大。即，i位置可能是最大子序列和的开始。
                 j = i;
             }
             if (candidateSumMax > maxSum) {
