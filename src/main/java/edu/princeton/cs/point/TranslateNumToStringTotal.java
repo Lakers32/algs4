@@ -21,6 +21,7 @@ public class TranslateNumToStringTotal {
      */
     public static int solution(int num) {
         String s = String.valueOf(num);
+        // 当num第1,2位的组成的数字∈[10,25]时，显然应有2种翻译方法，即dp[2] = dp[1] + dp[0]，而显然dp[1] = 1，因此推出dp[0] = 1。类似这里的c = a + b。
         int a = 1, b = 1;
         for (int i = 2; i <= s.length(); i++) {
             String tmp = s.substring(i - 2, i);
