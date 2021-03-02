@@ -21,17 +21,19 @@ public class LengthOfLongestSubstring {
      * @return
      */
     public static int solution(String s) {
+        // 上一次字符出现的位置
         Map<Character, Integer> dic = new HashMap<>();
-        int longestLength = 0, tmp = 0;
+        // dp[j] 与 dp[j-1]
+        int longestLength = 0, lastLongestLength = 0;
         for (int j = 0; j < s.length(); j++) {
             // 获取索引 i
             int i = dic.getOrDefault(s.charAt(j), -1);
             // 更新哈希表
             dic.put(s.charAt(j), j);
             // dp[j - 1] -> dp[j]
-            tmp = tmp < j - i ? tmp + 1 : j - i;
+            lastLongestLength = lastLongestLength < j - i ? lastLongestLength + 1 : j - i;
             // max(dp[j - 1], dp[j])
-            longestLength = Math.max(longestLength, tmp);
+            longestLength = Math.max(longestLength, lastLongestLength);
         }
 
         return longestLength;
@@ -44,7 +46,8 @@ public class LengthOfLongestSubstring {
      * @return
      */
     public static int solution2(String s) {
-        int longestLength = 0, tmp = 0;
+        // dp[j] 与 dp[j-1]
+        int longestLength = 0, lastLongestLength = 0;
         for (int j = 0; j < s.length(); j++) {
             int i = j - 1;
             // 线性查找 i
@@ -52,9 +55,9 @@ public class LengthOfLongestSubstring {
                 i--;
             }
             // dp[j - 1] -> dp[j]
-            tmp = tmp < j - i ? tmp + 1 : j - i;
+            lastLongestLength = lastLongestLength < j - i ? lastLongestLength + 1 : j - i;
             // max(dp[j - 1], dp[j])
-            longestLength = Math.max(longestLength, tmp);
+            longestLength = Math.max(longestLength, lastLongestLength);
         }
 
         return longestLength;
@@ -67,6 +70,7 @@ public class LengthOfLongestSubstring {
      * @return
      */
     public static int solution3(String s) {
+        // 上一次字符出现的位置
         Map<Character, Integer> dic = new HashMap<>();
         int i = -1, longestLength = 0;
         for (int j = 0; j < s.length(); j++) {
@@ -84,6 +88,6 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
         String s = "abcabcbb";
-        System.out.println("LengthOfLongestSubstring is " + solution(s));
+        System.out.println("LengthOfLongestSubstring is " + solution3(s));
     }
 }
