@@ -127,23 +127,23 @@ public class CountReversePairs {
 
         int count = 0;
         for (int k = left; k <= right; k++) {
-            // 有下标访问，得先判断是否越界
+
             if (i == mid + 1) {
                 nums[k] = temp[j];
                 j++;
             } else if (j == right + 1) {
                 nums[k] = temp[i];
                 i++;
+
+                count += (right - mid);
             } else if (temp[i] <= temp[j]) {
-                // 注意：这里是 <= ，写成 < 就不对，请思考原因
                 nums[k] = temp[i];
                 i++;
+
+                count += (j - mid - 1);
             } else {
                 nums[k] = temp[j];
                 j++;
-
-                // 在 j 指向的元素归并回去的时候，计算逆序对的个数，只多了这一行代码
-                count += (mid - i + 1);
             }
         }
         return count;
