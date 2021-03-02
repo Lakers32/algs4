@@ -18,6 +18,7 @@ public class NthUglyNumber {
      * @return
      */
     public static int solution (int n) {
+        // 索引位置
         int a = 0, b = 0, c = 0;
         int[] dp = new int[n];
         dp[0] = 1;
