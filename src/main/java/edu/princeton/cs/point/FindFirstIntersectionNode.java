@@ -16,6 +16,16 @@ public class FindFirstIntersectionNode {
         }
     }
 
+    /**
+     * 假设第一个公共节点为 node
+     * ①、指针 A 先遍历完链表 headA ，再开始遍历链表 headB ，走到第一个公共节点 node
+     * ②、指针 B 先遍历完链表 headB ，再开始遍历链表 headA ，走到第一个公共节点 node
+     * 二者经历的步长相等，也就是说当 指针 A == 指针 B 时，就是第一个公共节点
+     *
+     * @param headA
+     * @param headB
+     * @return
+     */
     public static ListNode solution(ListNode headA, ListNode headB) {
         ListNode A = headA, B = headB;
         while (A != B) {
