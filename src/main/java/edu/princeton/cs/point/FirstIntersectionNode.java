@@ -5,7 +5,7 @@ package edu.princeton.cs.point;
  * @author: cheng kai
  * @create: 2021-03-02 17:37
  **/
-public class FindFirstIntersectionNode {
+public class FirstIntersectionNode {
 
     public static class ListNode {
         int val;

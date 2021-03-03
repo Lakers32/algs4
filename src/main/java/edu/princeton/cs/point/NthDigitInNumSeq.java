@@ -10,7 +10,7 @@ package edu.princeton.cs.point;
  * @author: cheng kai
  * @create: 2021-03-01 11:08
  **/
-public class FindNthDigitInNumSeq {
+public class NthDigitInNumSeq {
 
     public static int solution(int n) {
         int digit = 1;

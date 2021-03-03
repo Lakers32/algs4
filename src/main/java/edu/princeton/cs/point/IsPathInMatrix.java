@@ -16,7 +16,7 @@ package edu.princeton.cs.point;
  * @author: cheng kai
  * @create: 2021-02-11 16:32
  **/
-public class FindPathInMatrix {
+public class IsPathInMatrix {
 
     public static boolean solution(char[][] board, String word) {
         char[] words = word.toCharArray();

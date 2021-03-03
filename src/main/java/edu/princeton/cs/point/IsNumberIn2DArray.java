@@ -10,7 +10,7 @@ package edu.princeton.cs.point;
  * @author: cheng kai
  * @create: 2021-02-03 10:41
  **/
-public class FindNumberIn2DArray {
+public class IsNumberIn2DArray {
 
     /**
      * 暴力遍历

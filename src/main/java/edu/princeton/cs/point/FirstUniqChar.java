@@ -13,7 +13,7 @@ import java.util.Map;
  * @author: cheng kai
  * @create: 2021-03-02 14:05
  **/
-public class FindFirstUniqChar {
+public class FirstUniqChar {
 
     /**
      * 哈希表
