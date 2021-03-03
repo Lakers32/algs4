@@ -2,10 +2,14 @@ package edu.princeton.cs.point;
 
 /**
  * @description: 剑指 Offer 54. 二叉搜索树的第k大节点
+ * <p>
+ * 给定一棵二叉搜索树，请找出其中第k大的节点。
+ * <p>
+ * https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/
  * @author: cheng kai
  * @create: 2021-03-03 14:33
  **/
-public class KthLargestInTreeNode {
+public class KthLargestInBinaryTree {
 
     public static class TreeNode {
         int val;
@@ -66,7 +70,7 @@ public class KthLargestInTreeNode {
         node3.left = node5;
 
         int k = 3;
-        KthLargestInTreeNode function = new KthLargestInTreeNode();
+        KthLargestInBinaryTree function = new KthLargestInBinaryTree();
         System.out.println("The " + k + "th largest number is " + function.solution(root, k));
     }
 }
