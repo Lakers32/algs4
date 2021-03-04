@@ -15,7 +15,7 @@ public class TwoNumsSumEqualTarget {
 
     /**
      * 双指针
-     * 两个int相加，可能会超过int
+     * 两个int相加，可能会超过int，可以考虑有target减去其中一个
      *
      * @param nums
      * @param target
@@ -38,7 +38,7 @@ public class TwoNumsSumEqualTarget {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2,7,11,15};
+        int[] nums = {2, 7, 11, 15};
         int target = 9;
 
         System.out.println("The two nums equals target are " + Arrays.toString(solution(nums, target)));
