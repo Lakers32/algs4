@@ -1,7 +1,5 @@
 package edu.princeton.cs.point;
 
-import java.util.Arrays;
-
 /**
  * @description: 剑指 Offer 56 - II. 数组中数字出现的次数 II
  * <p>
