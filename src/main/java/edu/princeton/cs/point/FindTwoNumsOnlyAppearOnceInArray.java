@@ -21,10 +21,11 @@ public class FindTwoNumsOnlyAppearOnceInArray {
             n ^= num;
         }
 
-        // 2. 循环左移，计算 m
+        // 2. 循环左移，计算 m，并将 m 作为两个数值的分离标志
         while ((n & m) == 0) {
             m <<= 1;
         }
+
         // 3. 遍历 nums 分组
         for (int num : nums) {
             // 4.1. 当 num & m != 0
@@ -33,7 +34,7 @@ public class FindTwoNumsOnlyAppearOnceInArray {
             }
             // 4.2. 当 num & m == 0
             else {
-                y ^= num;
+                 y ^= num;
             }
         }
 
