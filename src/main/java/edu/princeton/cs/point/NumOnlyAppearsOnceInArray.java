@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author: cheng kai
  * @create: 2021-03-04 15:23
  **/
-public class FindTwoNumsOnlyAppearOnceInArray2 {
+public class NumOnlyAppearsOnceInArray {
 
     /**
      * 位运算 + 有限状态自动机

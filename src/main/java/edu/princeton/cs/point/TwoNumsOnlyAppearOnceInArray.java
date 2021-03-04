@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author: cheng kai
  * @create: 2021-03-04 11:48
  **/
-public class FindTwoNumsOnlyAppearOnceInArray {
+public class TwoNumsOnlyAppearOnceInArray {
 
     public static int[] solution(int[] nums) {
         int x = 0, y = 0, n = 0, m = 1;
