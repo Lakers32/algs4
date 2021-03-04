@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author: cheng kai
  * @create: 2021-03-04 16:18
  **/
-public class TwoNumsSumEqualTarget {
+public class TwoNumsSumEqualsTarget {
 
     /**
      * 双指针
