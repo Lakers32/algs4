@@ -23,6 +23,7 @@ public class IsBinaryTreeBalanced {
 
     /**
      * 后序遍历 + 剪枝 （从底至顶）
+     * 此方法为本题的最优解法，但剪枝的方法不易第一时间想到。
      *
      * @param root
      * @return
@@ -51,6 +52,35 @@ public class IsBinaryTreeBalanced {
             return -1;
         }
         return Math.abs(left - right) < 2 ? Math.max(left, right) + 1 : -1;
+    }
+
+
+
+    /**
+     * 先序遍历 + 判断深度 （从顶至底）
+     * 此方法容易想到，但会产生大量重复计算，时间复杂度较高。
+     *
+     * @param root
+     * @return
+     */
+    public static boolean solution2(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1 && solution2(root.left) && solution2(root.right);
+    }
+
+    /**
+     * 计算二叉树的最大深度
+     *
+     * @param root
+     * @return
+     */
+    private static int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
     public static void main(String[] args) {
