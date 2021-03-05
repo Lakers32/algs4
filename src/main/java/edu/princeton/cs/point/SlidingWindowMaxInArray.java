@@ -16,7 +16,7 @@ public class SlidingWindowMaxInArray {
 
     /**
      * 回忆《剑指 Offer 30. 包含 min 函数的栈》 {@link edu.princeton.cs.point.StackWithMin}，其使用 单调栈 实现了随意入栈、出栈情况下的 O(1) 时间获取 “栈内最小值” 。
-     * 本题同理，不同点在于 “出栈操作” 删除的是 “列表尾部元素” ，而 “窗口滑动” 删除的是 “列表首部元素” 。
+     * 本题同理，不同点在于 “出栈操作” 删除的是 “列表尾部元素” ，而 “窗口滑动” 删除的是 “列表首部元素” (列表首到尾是递减)。
      *
      * @param nums
      * @param k
@@ -64,25 +64,30 @@ public class SlidingWindowMaxInArray {
 
         Deque<Integer> deque = new LinkedList<>();
         int[] slidingWindowMaxs = new int[nums.length - k + 1];
-        // 未形成窗口
+        // 未形成窗口时，初始化双向队列，保证deque里面的元素到当前元素位置为止是从队首到队尾递减(也就是说，某些元素可能比队尾元素大，但是被删除了，例如测试例子中的第一个元素1)
         for (int i = 0; i < k; i++) {
             while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
                 deque.removeLast();
             }
             deque.addLast(nums[i]);
         }
+
         slidingWindowMaxs[0] = deque.peekFirst();
         // 形成窗口后
         for (int i = k; i < nums.length; i++) {
+            // 删除非本次窗口的最大值
             if (deque.peekFirst() == nums[i - k]) {
                 deque.removeFirst();
             }
+            // 继续填充双向队列，保证deque里面的元素到当前元素位置为止是从队首到队尾递减
             while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
                 deque.removeLast();
             }
             deque.addLast(nums[i]);
+            // 将当前窗口最大值复制给目标返回值
             slidingWindowMaxs[i - k + 1] = deque.peekFirst();
         }
+
         return slidingWindowMaxs;
     }
 
@@ -90,7 +95,7 @@ public class SlidingWindowMaxInArray {
         int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
         int k = 3;
 
-        System.out.println("Sliding window maxs are " + solution(nums, k));
+        // System.out.println("Sliding window maxs are " + solution(nums, k));
         System.out.println("Sliding window maxs are " + solution2(nums, k));
     }
 
