@@ -37,6 +37,7 @@ public class ConstructProductArray {
             tmp *= a[i + 1];
             b[i] *= tmp;
         }
+
         return b;
     }
 
