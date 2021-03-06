@@ -55,7 +55,6 @@ public class IsStraightInPoker {
 
     /**
      * 排序 + 遍历
-     * 不借用任何java内置函数
      *
      * @param nums
      * @return
