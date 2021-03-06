@@ -102,17 +102,17 @@ public class LowestCommonAncestorInBinarySearchTree {
 
         root.left = node1;
         root.right = node2;
-        node2.left = node3;
-        node2.right = node4;
-        node3.left = node5;
-        node3.right = node6;
+        node1.left = node3;
+        node1.right = node4;
+        node2.left = node5;
+        node2.right = node6;
         node4.left = node7;
-        node5.right = node8;
+        node4.right = node8;
 
         TreeNode p = new TreeNode(3);
-        TreeNode q = new TreeNode(4);
+        TreeNode q = new TreeNode(5);
 
-        System.out.println("Lowest common ancestor in binary search tree is " + solution(root, p, q));
+        System.out.println("Lowest common ancestor in binary search tree is " + solution(root, p, q).val);
     }
 
 }
