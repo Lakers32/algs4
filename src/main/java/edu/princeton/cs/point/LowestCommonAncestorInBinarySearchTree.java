@@ -53,6 +53,7 @@ public class LowestCommonAncestorInBinarySearchTree {
                 // 遍历至左子节点
                 root = root.left;
             } else {
+                // p在左，q在右，说明找到了 最近公共祖先 ，跳出
                 break;
             }
         }
@@ -86,6 +87,7 @@ public class LowestCommonAncestorInBinarySearchTree {
             return solution2(root.left, p, q);
         }
 
+        // 说明p,q 在root.val两侧，即找到了 最近公共祖先 ，跳出
         return root;
     }
 
