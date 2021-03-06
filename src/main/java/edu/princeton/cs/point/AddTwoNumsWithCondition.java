@@ -26,7 +26,7 @@ public class AddTwoNumsWithCondition {
     }
 
     public static void main(String[] args) {
-        int a = 3, b = 5;
+        int a = 3, b = -8;
         System.out.println("The two nums sum is " + solution(a, b));
     }
 }
