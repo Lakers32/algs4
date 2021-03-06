@@ -13,13 +13,34 @@ package edu.princeton.cs.point;
 public class JosephCircle {
 
     /**
-     * 动态规划
+     * 数学 + 递归
      *
      * @param n
      * @param m
      * @return
      */
     public static int solution(int n, int m) {
+        return func(n, m);
+    }
+
+    public static int func(int n, int m) {
+        if (n == 1) {
+            return 0;
+        }
+
+        int x = func(n - 1, m);
+
+        return (m + x) % n;
+    }
+
+    /**
+     * 参考方法一，将递归改成迭代 (动态规划)
+     *
+     * @param n
+     * @param m
+     * @return
+     */
+    public static int solution2(int n, int m) {
         int x = 0;
 
         for (int i = 2; i <= n; i++) {
