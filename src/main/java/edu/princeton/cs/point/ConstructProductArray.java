@@ -28,11 +28,11 @@ public class ConstructProductArray {
         int[] b = new int[a.length];
         b[0] = 1;
         int tmp = 1;
-        // 计算 B[i] 的 下三角 各元素的乘积，直接乘入 B[i]
+        // 计算 B[i] 的 下三角 各元素的乘积，直接乘入 B[i]（维护i左侧的dp）
         for (int i = 1; i < a.length; i++) {
             b[i] = b[i - 1] * a[i - 1];
         }
-        // 计算 B[i] 的 上三角 各元素的乘积，记为 tmp ，并乘入 B[i]
+        // 计算 B[i] 的 上三角 各元素的乘积，记为 tmp ，并乘入 B[i]（维护i右侧的dp）
         for (int i = a.length - 2; i >= 0; i--) {
             tmp *= a[i + 1];
             b[i] *= tmp;
