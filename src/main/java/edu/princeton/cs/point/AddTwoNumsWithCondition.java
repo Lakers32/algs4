@@ -11,6 +11,15 @@ package edu.princeton.cs.point;
  **/
 public class AddTwoNumsWithCondition {
 
+    /**
+     * n = a ⊕ b 非进位和：异或运算
+     * c = a & b << 1 进位：与运算+左移一位
+     * s = a + b ⇒ s = n + c
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static int solution(int a, int b) {
         // 当进位为 0 时跳出
         while (b != 0) {
