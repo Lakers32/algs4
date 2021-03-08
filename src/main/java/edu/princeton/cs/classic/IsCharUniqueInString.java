@@ -117,7 +117,7 @@ public class IsCharUniqueInString {
      * @param astr
      * @return
      */
-    public boolean isUnique(String astr) {
+    public static boolean solution6(String astr) {
         for (int i = 0; i < astr.length(); i++) {
             char c = astr.charAt(i);
             //判断当前字符从前面和后面索引是否相同，如果不相同，
