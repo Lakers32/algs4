@@ -1,5 +1,8 @@
 package edu.princeton.cs.classic;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @description: 面试题 01.01. 判定字符是否唯一
  * <p>
@@ -27,6 +30,103 @@ public class IsCharUniqueInString {
             }
             arr[astr.charAt(i)]++;
         }
+
+        return true;
+    }
+
+    /**
+     * 若字符串只包含英文字符，则可用位运算
+     *
+     * @param astr
+     * @return
+     */
+    public static boolean solution2(String astr) {
+        long bits = 0;
+        int size = astr.length();
+        for (int i = 0; i < size; i++) {
+            int move = astr.charAt(i) - 'A';
+            if ((bits & (1L << move)) != 0) {
+                //有重复的，直接返回false
+                return false;
+            } else {
+                //标记当前位置有这个字符
+                bits |= (1L << move);
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * 双层循环，两两比较
+     *
+     * @param astr
+     * @return
+     */
+    public static boolean solution3(String astr) {
+        for (int i = 0; i < astr.length(); i++) {
+            for (int j = i + 1; j < astr.length(); j++) {
+                if (astr.charAt(i) == astr.charAt(j)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * 集合set验证重复
+     *
+     * @param astr
+     * @return
+     */
+    public static boolean solution4(String astr) {
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < astr.length(); i++) {
+            //如果有重复的直接返回false
+            if (!set.add(astr.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * 使用String的indexOf方法
+     *
+     * @param astr
+     * @return
+     */
+    public static boolean solution5(String astr) {
+        for (int i = 0; i < astr.length(); i++) {
+            char c = astr.charAt(i);
+            //查看后面是否有当前字符
+            if (astr.indexOf(c, i + 1) != -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * 使用String的indexOf和lastIndexOf方法
+     *
+     * @param astr
+     * @return
+     */
+    public boolean isUnique(String astr) {
+        for (int i = 0; i < astr.length(); i++) {
+            char c = astr.charAt(i);
+            //判断当前字符从前面和后面索引是否相同，如果不相同，
+            //说明有重复的字符，直接返回false
+            if (astr.indexOf(c) != astr.lastIndexOf(c)) {
+                return false;
+            }
+        }
+
         return true;
     }
 
