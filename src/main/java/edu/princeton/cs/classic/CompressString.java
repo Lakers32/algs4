@@ -74,6 +74,7 @@ public class CompressString {
     public static void main(String[] args) {
         String str1 = "aabcccccaaa";
         System.out.println("Compress string [" + str1 + "] is " + solution(str1));
+
         String str2 = "abbccd";
         System.out.println("Compress string [" + str2 + "] is " + solution(str2));
     }
