@@ -15,6 +15,7 @@ public class CompressString {
 
     /**
      * 模拟：保留前面第一次出现的那个与当前比较
+     * 也是双指针
      *
      * @param S
      * @return
@@ -45,6 +46,29 @@ public class CompressString {
         ans.append(cnt);
 
         return ans.length() >= S.length() ? S : ans.toString();
+    }
+
+    /**
+     * 双指针
+     *
+     * @param S
+     * @return
+     */
+    public static String solution2(String S) {
+        int length = S.length();
+        int i = 0;
+        StringBuilder sb = new StringBuilder();
+        while (i < length) {
+            int j = i;
+            while (j < length && S.charAt(j) == S.charAt(i)) {
+                j++;
+            }
+            sb.append(S.charAt(i));
+            sb.append(j - i);
+            i = j;
+        }
+
+        return sb.length() >= S.length() ? S : sb.toString();
     }
 
     public static void main(String[] args) {
