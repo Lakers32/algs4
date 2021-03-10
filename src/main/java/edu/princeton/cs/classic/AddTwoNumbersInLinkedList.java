@@ -1,5 +1,7 @@
 package edu.princeton.cs.classic;
 
+import edu.princeton.cs.point.ReverseList;
+
 /**
  * @description: 面试题 02.05. 链表求和
  * <p>
@@ -75,6 +77,41 @@ public class AddTwoNumbersInLinkedList {
         helper(result.next, l1 != null ? l1.next : null, l2 != null ? l2.next : null, carry);
     }
 
+
+    /**
+     * 思考一下，假设这些数位是正向存放的，又该如何解决呢?
+     * 链表反转 + 上述解决办法
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public static ListNode solution3(ListNode l1, ListNode l2) {
+        return reverseList(solution2(reverseList(l1), reverseList(l2)));
+    }
+
+    /**
+     * 反转单链表
+     *
+     * @param head
+     * @return
+     */
+    private static ListNode reverseList(ListNode head) {
+        // 前面或当前节点
+        ListNode current = null;
+        // 后面和暂存节点
+        ListNode next = null;
+        while (head != null) {
+            next = head.next;
+            head.next = current;
+            current = head;
+            head = next;
+        }
+
+        return current;
+    }
+
+
     public static void main(String[] args) {
         ListNode l1 = new ListNode(7);
         ListNode l11 = new ListNode(1);
@@ -89,6 +126,22 @@ public class AddTwoNumbersInLinkedList {
         l21.next = l22;
 
         ListNode nodeSum = solution2(l1, l2);
+
+        System.out.println("上面是低位在链表前面，高位在链表后面。下面是高位在链表前面，高位在链表后面。");
+
+        ListNode ll1 = new ListNode(6);
+        ListNode ll11 = new ListNode(1);
+        ListNode ll12 = new ListNode(7);
+        ll1.next = ll11;
+        ll11.next = ll12;
+
+        ListNode ll2 = new ListNode(2);
+        ListNode ll21 = new ListNode(9);
+        ListNode ll22 = new ListNode(5);
+        ll2.next = ll21;
+        ll21.next = ll22;
+
+        ListNode reservedNodeSum = solution3(ll1, ll2);
         System.out.println();
     }
 
