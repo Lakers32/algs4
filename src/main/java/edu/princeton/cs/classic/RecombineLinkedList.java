@@ -29,6 +29,7 @@ public class RecombineLinkedList {
      * @return
      */
     public static ListNode solution(ListNode head, int x) {
+        // 初始化大于和小于x的链表，头节点是虚拟的
         ListNode small = new ListNode(0);
         ListNode smallHead = small;
         ListNode large = new ListNode(0);
