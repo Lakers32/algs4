@@ -1,7 +1,5 @@
 package edu.princeton.cs.classic;
 
-import edu.princeton.cs.point.ReverseList;
-
 /**
  * @description: 面试题 02.05. 链表求和
  * <p>
