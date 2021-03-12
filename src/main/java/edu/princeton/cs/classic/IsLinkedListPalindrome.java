@@ -53,6 +53,9 @@ public class IsLinkedListPalindrome {
         return true;
     }
 
+    /**
+     * 递归法 全局前置节点
+     */
     private static ListNode frontPointer;
 
     /**
@@ -144,17 +147,41 @@ public class IsLinkedListPalindrome {
             return true;
         }
 
-        ListNode tempHead = head;
+        ListNode copyHead = copyList(head);
         ListNode reversedHead = reverseList(head);
-        while (tempHead != null && reversedHead != null) {
-            if (tempHead.val != reversedHead.val) {
+        while (copyHead != null && reversedHead != null) {
+            if (copyHead.val != reversedHead.val) {
                 return false;
             }
-            tempHead = tempHead.next;
+            copyHead = copyHead.next;
             reversedHead = reversedHead.next;
         }
 
         return true;
+    }
+
+    private static ListNode copyList(ListNode node) {
+        // todo
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
+        ListNode node4 = new ListNode(3);
+        ListNode node5 = new ListNode(2);
+        ListNode node6 = new ListNode(11);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+
+        System.out.println("Is linked list palindrome? " + solution4(head));
     }
 
 }
